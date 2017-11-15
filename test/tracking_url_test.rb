@@ -6,6 +6,11 @@ class TrackingUrlTest < Minitest::Test
     refute_nil ::TrackingUrl::VERSION
   end
 
+  def test_missing_parser
+    url = "http://example.com"
+    assert_nil TrackingUrl.parse_lp(url)
+  end
+
   def test_tradedoubler
     url = "https://clk.tradedoubler.com/click?p=123&a=123&g=123&url=https://example.com/"
     assert_equal TrackingUrl.parse_lp(url), "https://example.com/"

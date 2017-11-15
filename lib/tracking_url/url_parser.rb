@@ -47,8 +47,6 @@ class UrlParser
   def parse
     if strategy
       decode(@url.to_s.scan(strategy).flatten.join)
-    else
-      @url.to_s
     end
   end
 
